@@ -3,15 +3,13 @@ import React, { useEffect } from "react";
 const StringCalculation = () => {
   useEffect(() => {
     function add(numbers) {
-      // Return 0 for an empty string
       if (numbers.trim() === "") {
         return 0;
       }
 
-      let delimiter = /[\n,]/; // Default delimiters: new line and comma
+      let delimiter = /[\n,]/;
       let numbersToProcess = numbers;
 
-      // Check for a custom delimiter
       if (numbers.startsWith("//")) {
         const delimiterLineEnd = numbers.indexOf("\n");
         delimiter = new RegExp(numbers.substring(2, delimiterLineEnd));

@@ -5,13 +5,12 @@ const StringCalculator = () => {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
-  // Function to parse and validate input
   const parseInput = () => {
     try {
       const numbers = input
-        .split(/,|\n/) // Split by commas or newlines
-        .map((num) => parseFloat(num.trim())) // Convert to numbers
-        .filter((num) => !isNaN(num)); // Ignore invalid inputs
+        .split(/,|\n/)
+        .map((num) => parseFloat(num.trim()))
+        .filter((num) => !isNaN(num));
       if (numbers.length === 0) throw new Error("No valid numbers provided.");
       return numbers;
     } catch {
@@ -19,7 +18,6 @@ const StringCalculator = () => {
     }
   };
 
-  // Function to perform calculations
   const calculate = (operation) => {
     setError("");
     try {
@@ -52,7 +50,7 @@ const StringCalculator = () => {
       <div style={{ marginBottom: "10px" }}>
         <input
           type="text"
-          placeholder="Enter numbers separated by ',' or new lines"
+          placeholder="Enter numbers separated by ','"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           style={{ width: "100%", padding: "10px", fontSize: "16px" }}
